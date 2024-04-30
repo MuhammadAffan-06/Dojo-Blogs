@@ -1,12 +1,14 @@
-import { useState } from 'react';
-const BlogList = ({ blogs, title, handleDelete }) => {   //Destructured the prop here and got whatever we needed
+import { Link } from 'react-router-dom';
+const BlogList = ({ blogs, title }) => {   //Destructured the prop here and got whatever we needed
     return (
         <div className="blog-list">
             <h2>{title}</h2>
             {blogs.map((blog) => (
                 <div className="blog-preview" key={blog.id}>
-                    <h2>{blog.title}</h2>
-                    <p>Written by {blog.author}</p>
+                    <Link to={`/blog/${blog.id}`} >
+                        <h2>{blog.title}</h2>
+                        <p>Written by {blog.author}</p>
+                    </Link>
                 </div>
             ))}
         </div>
